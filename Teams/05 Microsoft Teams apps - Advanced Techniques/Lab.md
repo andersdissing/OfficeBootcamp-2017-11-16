@@ -625,7 +625,7 @@ This section of the lab extends the bot from Exercise 1 with Microsoft Teams fun
           break;
 
         case ActivityTypes.Invoke:
-          await ComposeHelpers.HandleInvoke(activity);
+          return ComposeHelpers.HandleInvoke(activity).Result;
           break;
 
         default:
