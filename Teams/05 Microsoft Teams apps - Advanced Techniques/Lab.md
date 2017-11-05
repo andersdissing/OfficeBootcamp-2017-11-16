@@ -845,7 +845,7 @@ In Microsoft Teams, full functionality for Office 365 Connectors is restricted t
 
 ### Create a simple Connector Card message to the webhook
 
-1. Copy the `sample-connector-message.json` file from the `Lab Files` folder to your development machine.
+1. Copy the `sample-connector-message.json` file from the `Lab Files` folder to your development machine. (https://messagecardplayground.azurewebsites.net/)
 1. Open a **PowerShell** window, go to the directory that contains the `sample-connector-message.json`, and enter the following commands:
 
     ```powershell
