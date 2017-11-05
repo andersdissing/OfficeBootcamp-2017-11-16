@@ -851,7 +851,7 @@ In Microsoft Teams, full functionality for Office 365 Connectors is restricted t
     ```powershell
     $message = Get-Content .\sample-connector-message.json
     $url = <YOUR WEBHOOK URL>
-    Invoke-RestMethod -ContentType="application/json" -Body $message -Uri $url -Method Post
+    Invoke-RestMethod -ContentType "application/json" -Body $message -Uri $url -Method Post
     ```
 
     ![](Images/Exercise3-03.png)
