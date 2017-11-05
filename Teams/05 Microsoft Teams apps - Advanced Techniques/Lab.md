@@ -749,8 +749,10 @@ This section of the lab extends the bot from Exercise 1 with Microsoft Teams fun
             var composeExtensionAttachment = card.ToAttachment().ToComposeExtensionAttachment();
             results.Attachments.Add(composeExtensionAttachment);
           }
-
-          invokeResponse.ComposeExtension = results;
+          invokeResponse = new ComposeExtensionResponse()
+          {
+            ComposeExtension = results
+          };
 
           // Return the response
           StringContent stringContent;
