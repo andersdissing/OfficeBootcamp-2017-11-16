@@ -625,7 +625,7 @@ This section of the lab extends the bot from Exercise 1 with Microsoft Teams fun
           break;
 
         case ActivityTypes.Invoke:
-          await ComposeHelpers.HandleInvoke(activity);
+          return ComposeHelpers.HandleInvoke(activity).Result;
           break;
 
         default:
@@ -749,8 +749,10 @@ This section of the lab extends the bot from Exercise 1 with Microsoft Teams fun
             var composeExtensionAttachment = card.ToAttachment().ToComposeExtensionAttachment();
             results.Attachments.Add(composeExtensionAttachment);
           }
-
-          invokeResponse.ComposeExtension = results;
+          invokeResponse = new ComposeExtensionResponse()
+          {
+            ComposeExtension = results
+          };
 
           // Return the response
           StringContent stringContent;
@@ -843,13 +845,13 @@ In Microsoft Teams, full functionality for Office 365 Connectors is restricted t
 
 ### Create a simple Connector Card message to the webhook
 
-1. Copy the `sample-connector-message.json` file from the `Lab Files` folder to your development machine.
+1. Copy the `sample-connector-message.json` file from the `Lab Files` folder to your development machine. (https://messagecardplayground.azurewebsites.net/)
 1. Open a **PowerShell** window, go to the directory that contains the `sample-connector-message.json`, and enter the following commands:
 
     ```powershell
     $message = Get-Content .\sample-connector-message.json
     $url = <YOUR WEBHOOK URL>
-    Invoke-RestMethod -ContentType="application/json" -Body $message -Uri <YOUR WEBHOOK URL> -Method Post
+    Invoke-RestMethod -ContentType "application/json" -Body $message -Uri $url -Method Post
     ```
 
     ![](Images/Exercise3-03.png)
