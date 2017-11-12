@@ -1,4 +1,4 @@
-# Microsoft Graph API Demo 01 - Docs
+# Create Team Demo 07
 
 ## Steps
 1. Navigate to https://teams.microsoft.com

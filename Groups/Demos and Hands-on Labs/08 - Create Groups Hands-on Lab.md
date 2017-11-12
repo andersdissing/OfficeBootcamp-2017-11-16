@@ -1,11 +1,26 @@
-# Microsoft Graph API Demo 01 - Docs
+# Create Groups Hands-on Lab 08
 
 ## Steps
-1. Register and configure v2 application
+1. Register and configure Azurea AD v2 application
 	1. Go to https://apps.dev.microsoft.com
-1. Consent via https://login.microsoftonline.com/common/adminconsent?client_id={clientId}&state=1
+	1. Login with as admin with admin@{tenant}.onmicrosoft.com
+	1. Click on 'Add an app' button
+		1. Enter any name for the application
+		1. Click on 'Create'
+			![](images/AddAnApp.png)
+	1. Note the application id
+	1. Create an application secrect - click on 'Generate New Password'
+		![](images/App1.png)
+	1. Add a platform - click on 'Add platform' and choose 'Native application'
+	1. Go to the 'Microsoft Graph Permissions' section
+		1. Under delegated permissions add: Group.ReadWrite.All
+		1. Under application permissions add: Group.ReadWrite.All, User.Read.All
+			![](images/App2.png)
+	1. Under 'Advanced options' remove the Live SDK support
+	1. Click the 'Save' button	
+1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id={clientId}&state=1
 1. Start with console application
-	1. Locate 08 - Groups Hands-on Lab folder
+	1. Locate 08 - Create Groups Hands-on Lab folder
 	1. Open the Spbg.CreateGroupsHol.sln with Visual Studio 2017
 	1. Click on 'Manage NuGet Packages for Solution...' from context menu in solution explorer
 	1. To to the Browse tab, tick-off 'Include prerelease', search for 'Microsoft.Identity.Client' and it to the project

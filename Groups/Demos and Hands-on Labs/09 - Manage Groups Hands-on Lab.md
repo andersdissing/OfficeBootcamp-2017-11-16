@@ -1,11 +1,11 @@
-# Microsoft Graph API Demo 01 - Docs
+# Manage Groups Hands-on Lab - 09
 
 ## Steps
 1. Start with console application
-	1. Locate 08 - Groups Hands-on Lab folder
+	1. Locate 08 - Create Groups Hands-on Lab folder
 	1. Open the Spbg.CreateGroupsHol.sln with Visual Studio 2017
-1. Add Owner to a Office 365 Group
-	1.Add this method to Progam.cs
+1. Add Owner to an Office 365 Group
+	1. Add this method to Progam.cs
 		```csharp
 		private static async Task AddOwnerToGroup(string groupMailNickname, string ownerUpn)
 		{
@@ -55,7 +55,7 @@
 			}
 		}
 		```
-	1. Then invoke it from Main method
+		1. Then invoke it from Main method
 		```csharp
 		// 6. Add 'user' to owner collection
 		Task.Run(() => AddOwnerToGroup("group6", $"bernd@{TenantId}"))

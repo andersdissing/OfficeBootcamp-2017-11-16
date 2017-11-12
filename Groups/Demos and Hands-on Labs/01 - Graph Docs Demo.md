@@ -5,7 +5,7 @@
 1. Choose 'Documentation' from the Microsoft Graph menu
 1. OR - Navigate directly to https://developer.microsoft.com/en-us/graph/docs/concepts/overview
 1. Go to Users / User
-	1. Inspect a methods
+	1. Inspect one of the methods
 		1. Click on one
 		1. Note the required permissions
 	1. Inspect properties

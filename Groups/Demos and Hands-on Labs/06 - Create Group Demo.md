@@ -1,4 +1,4 @@
-# Microsoft Graph API Demo 01 - Docs
+# Create Group Demo 06
 
 ## Steps
 1. Navigate to portal.office.com
