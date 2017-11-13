@@ -58,7 +58,7 @@
 		1. Then invoke it from Main method
 		```csharp
 		// 6. Add 'user' to owner collection
-		Task.Run(() => AddOwnerToGroup("group6", $"bernd@{TenantId}"))
+		Task.Run(() => AddOwnerToGroup("group", $"admin@{TenantId}"))
 			.GetAwaiter()
 			.GetResult();
 		```
@@ -71,7 +71,7 @@
 	1. Add this code to the Main method
 		```csharp
 		var client = GetGraphClient();
-		var group = client.Groups.Request().Filter("mailNickname eq 'group2'").GetAsync().Result.FirstOrDefault();
+		var group = client.Groups.Request().Filter("mailNickname eq 'group'").GetAsync().Result.FirstOrDefault();
 
 		var destination = new MemoryStream();
 		using (var source = File.Open(@"logo.png", FileMode.Open))
@@ -80,5 +80,5 @@
 		}
 		destination.Position = 0;
 
-		client.Groups[group.Id].Photo.Content.Request().PutAsync(destination).GetAwaiter().GetResult();	```csharp
+		client.Groups[group.Id].Photo.Content.Request().PutAsync(destination).GetAwaiter().GetResult();	
 		```

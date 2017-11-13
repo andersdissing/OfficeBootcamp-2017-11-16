@@ -18,7 +18,7 @@
 			![](images/App2.png)
 	1. Under 'Advanced options' remove the Live SDK support
 	1. Click the 'Save' button	
-1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id={clientId}&state=1
+1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id=YourClientId&redirectUrl=http://localhost
 1. Start with console application
 	1. Locate 08 - Create Groups Hands-on Lab folder
 	1. Open the Spbg.CreateGroupsHol.sln with Visual Studio 2017
