@@ -151,7 +151,6 @@
 	```
 1. Then invoke it from Main method
 	```csharp
-	// 6. Add 'user' to owner collection
 	Task.Run(() => AddOwnerToGroup("group", $"admin@{TenantId}"))
 		.GetAwaiter()
 		.GetResult();
