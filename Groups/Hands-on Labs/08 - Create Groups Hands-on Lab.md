@@ -1,6 +1,11 @@
 # Create Groups Hands-on Lab 08
 
 ## Steps
+1. Start with console application
+	1. Locate '08 - Create Groups Hands-on Lab' folder
+	1. Open the 'Spbg.CreateGroupsHol.sln' with Visual Studio 2017
+	1. Click on 'Manage NuGet Packages for Solution...' from context menu in solution explorer
+	1. To to the Browse tab, tick-off 'Include prerelease', search for 'Microsoft.Identity.Client' and it to the project
 1. Register and configure Azurea AD v2 application
 	1. Go to https://apps.dev.microsoft.com
 	1. Login with as admin with admin@{tenant}.onmicrosoft.com
@@ -19,11 +24,6 @@
 	1. Under 'Advanced options' remove the Live SDK support
 	1. Click the 'Save' button	
 1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id=YourClientId&redirectUrl=http://localhost
-1. Start with console application
-	1. Locate 08 - Create Groups Hands-on Lab folder
-	1. Open the Spbg.CreateGroupsHol.sln with Visual Studio 2017
-	1. Click on 'Manage NuGet Packages for Solution...' from context menu in solution explorer
-	1. To to the Browse tab, tick-off 'Include prerelease', search for 'Microsoft.Identity.Client' and it to the project
 1. Authenticate with app-only 
 	1. Open up Program.cs
 	1. Fill-out the four constants in the top with the values for your Azure AD application and Office 365 tenant, for example:
@@ -100,3 +100,60 @@
         Console.WriteLine(result.Mail);
 		```
 1. Execute the same code one more time - observe the GraphServiceException
+1. Add Owner to an Office 365 Group, add this method to Progam.cs
+	```csharp
+	private static async Task AddOwnerToGroup(string groupMailNickname, string ownerUpn)
+	{
+		var client = GetGraphClient();
+
+		var userFiltered = await client.Users
+			.Request()
+			.Filter($"userPrincipalName eq '{ownerUpn}'")
+			.GetAsync();
+		var user = userFiltered.First();
+
+		var groupFiltered = await client.Groups
+			.Request()
+			.Filter($"mailNickname eq '{groupMailNickname}'")
+			.GetAsync();
+		var group = groupFiltered.First();
+
+		var owners = await client.Groups[group.Id].Owners
+			.Request()
+			.GetAsync();
+		if (owners == null || owners.Count == 0)
+		{
+			// No owners yet. Add it
+			await client.Groups[group.Id].Owners.References
+				.Request()
+				.AddAsync(user);
+			Console.WriteLine($"Owner {user.UserPrincipalName} added to group {group.Mail}");
+			return;
+		}
+
+		// Test if the user is already an owner
+		var ownersFiltered = await client.Groups[group.Id].Owners
+			.Request()
+			.Filter($"id eq '{user.Id}'")
+			.GetAsync();
+		if (ownersFiltered.Count == 0)
+		{
+			// Add 
+			await client.Groups[group.Id].Owners.References
+				.Request()
+				.AddAsync(user);
+			Console.WriteLine($"Owner {user.UserPrincipalName} added to group {group.Mail}");
+		}
+		else
+		{
+			Console.WriteLine("Owner already added");
+		}
+	}
+	```
+1. Then invoke it from Main method
+	```csharp
+	// 6. Add 'user' to owner collection
+	Task.Run(() => AddOwnerToGroup("group", $"admin@{TenantId}"))
+		.GetAwaiter()
+		.GetResult();
+	```

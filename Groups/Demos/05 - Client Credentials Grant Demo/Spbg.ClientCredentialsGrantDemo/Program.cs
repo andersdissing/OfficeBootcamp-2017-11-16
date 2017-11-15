@@ -32,7 +32,7 @@ namespace Spbg.ClientCredentialsGrantDemo
             using (var wc = new WebClient())
             {
                 wc.Headers["Authorization"] = $"Bearer {token}";
-                var responseJson = wc.DownloadString("https://graph.microsoft.com/v1.0/users/admin@{tenant}.onmicrosoft.com");
+                var responseJson = wc.DownloadString($"https://graph.microsoft.com/v1.0/users/admin@{TenantId}.onmicrosoft.com");
 
                 Console.WriteLine();
                 Console.WriteLine("User profile");
