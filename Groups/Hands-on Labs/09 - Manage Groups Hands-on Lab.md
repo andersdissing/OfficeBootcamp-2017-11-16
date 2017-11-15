@@ -12,7 +12,7 @@
 		var group = client.Groups.Request().Filter("mailNickname eq 'group'").GetAsync().Result.FirstOrDefault();
 
 		var destination = new MemoryStream();
-		using (var source = File.Open(@"logo.png", FileMode.Open))
+		using (var source = System.IO.File.Open(@"logo.png", FileMode.Open))
 		{
 			source.CopyTo(destination);
 		}

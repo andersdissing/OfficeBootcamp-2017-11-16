@@ -5,7 +5,8 @@
 	1. Locate '08 - Create Groups Hands-on Lab' folder
 	1. Open the 'Spbg.CreateGroupsHol.sln' with Visual Studio 2017
 	1. Click on 'Manage NuGet Packages for Solution...' from context menu in solution explorer
-	1. To to the Browse tab, tick-off 'Include prerelease', search for 'Microsoft.Identity.Client' and it to the project
+	1. Go to the Browse tab, tick-off 'Include prerelease', search for 'Microsoft.Identity.Client' and it to the project
+	1. Now, search for 'Microsoft.Graph' and it to the project
 1. Register and configure Azurea AD v2 application
 	1. Go to https://apps.dev.microsoft.com
 	1. Login with as admin with admin@{tenant}.onmicrosoft.com
@@ -23,7 +24,7 @@
 			![](images/App2.png)
 	1. Under 'Advanced options' remove the Live SDK support
 	1. Click the 'Save' button	
-1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id=YourClientId&redirectUrl=http://localhost
+1. Open up a browser and navigate to the consent URL at (insert your client id beforehand) https://login.microsoftonline.com/common/adminconsent?client_id=YourClientId&redirect_uri=http://localhost
 1. Authenticate with app-only 
 	1. Open up Program.cs
 	1. Fill-out the four constants in the top with the values for your Azure AD application and Office 365 tenant, for example:
@@ -81,8 +82,6 @@
     }
 	```
 1. Create a group with Microsoft Graph SDK
-	1. Click on 'Manage NuGet Packages for Solution...' from context menu in solution explorer
-	1. To to the Browse tab, search for 'Microsoft.Graph' and it to the project
 	1. Add the code below
 		```csharp
         var client = GetGraphClient();
