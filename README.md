@@ -13,7 +13,7 @@ Here you find the demos, hands-on labs and presentations from our event in the D
 	1. Packaging and testing
 	1. Building a basic bot
 	1. Building a tab
-1. Team app fundamentals hands-on, 13.45 - 14.30, 45' min (Anders
+1. Team app fundamentals hands-on, 13.45 - 14.30, 45' min (Anders)
 1. Pause med Survey og SWAG, 14.30 - 15.00, 30' min
 1. Teams app advanced, 15.00 - 16.15, 75' min (Anders)
 	1. Advanced bot capabilities
