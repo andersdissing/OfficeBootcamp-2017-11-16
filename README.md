@@ -21,3 +21,7 @@ Here you find the demos, hands-on labs and presentations from our event in the D
 	1. Apps with multiple capabilities
 1. Pause, 16.15 - 16.30, 15' min
 1. Teams advanced hands-on, 16.30 - 17.30, 1 h (Anders)
+
+# Disclaimer
+
+THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
